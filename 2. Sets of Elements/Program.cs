@@ -11,14 +11,12 @@
             for (int i = 0; i < setsLengths[0]; i++)
             {
                 number = int.Parse(Console.ReadLine());
-                //add the number to the first hashset
                 firstNumbers.Add(number);
             }
 
             for (int i = 0; i < setsLengths[1]; i++)
             {
                 number = int.Parse(Console.ReadLine());
-                //add the number to the second hashset
                 secondNumbers.Add(number);
             }
 
@@ -41,7 +39,6 @@
                 //check if the number is present in the other hashset
                 if (firstNumbers.Contains(number))
                 {
-                    //print the number
                     Console.Write(number + " ");
                 }
             }
