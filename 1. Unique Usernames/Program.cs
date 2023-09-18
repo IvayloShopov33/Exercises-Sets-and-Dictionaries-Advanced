@@ -9,11 +9,9 @@
             for (int i = 1; i <= inputLinesCount; i++)
             {
                 string username = Console.ReadLine();
-                //add the username to the hashset if it is not present in it
                 usernames.Add(username);
             }
-
-            //print the unique usernames, each one on a new line
+            
             Console.WriteLine(string.Join(Environment.NewLine, usernames));
         }
     }
