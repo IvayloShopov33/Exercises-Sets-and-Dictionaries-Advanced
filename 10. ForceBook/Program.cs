@@ -9,23 +9,25 @@
             while (true)
             {
                 command = Console.ReadLine();
+                
                 //check if the command means that the program should stop working
                 if (command == "Lumpawaroo")
                 {
                     //remove all cases, where there are no users on one side
                     forceBook = forceBook.Where(x => x.Value.Count > 0).ToDictionary(x => x.Key, x => x.Value);
+                    
                     //order the dictionary by descending count of values and then order by name (key)
                     foreach (var side in forceBook.OrderByDescending(x => x.Value.Count).ThenBy(x => x.Key))
                     {
                         Console.WriteLine($"Side: {side.Key}, Members: {side.Value.Count}");
+                        
                         //order the users alphabetically and print them
                         foreach (var user in side.Value.OrderBy(x => x))
                         {
                             Console.WriteLine($"! {user}");
                         }
                     }
-
-                    //stop the program
+                    
                     break;
                 }
 
