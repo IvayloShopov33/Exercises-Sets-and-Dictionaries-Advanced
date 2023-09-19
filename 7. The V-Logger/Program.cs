@@ -8,17 +8,19 @@
                 new Dictionary<string, Dictionary<string, HashSet<string>>>();
             string following = "following";
             string followers = "followers";
+            
             string[] inputCommands;
             while (true)
             {
                 inputCommands = Console.ReadLine().Split();
+                
                 //if the input is "Statistics", next lines should be printed and the program should stop working
                 if (inputCommands[0] == "Statistics")
                 {
                     Console.WriteLine($"The V-Logger has a total of {vloggers.Count} vloggers in its logs.");
-                    //sorted the dictionary
                     vloggers = vloggers.OrderByDescending(x => x.Value[followers].Count)
                         .ThenBy(x => x.Value[following].Count).ToDictionary(x => x.Key, x => x.Value);
+                    
                     int index = 1;
                     foreach (var vlogger in vloggers)
                     {
@@ -35,8 +37,7 @@
 
                         index++;
                     }
-
-                    //stop the program
+                    
                     break;
                 }
 
@@ -44,6 +45,7 @@
                 if (inputCommands.Contains("joined"))
                 {
                     string vloggerName = inputCommands[0];
+                    
                     //check if the vlogger is not present in the dictionary
                     if (!vloggers.ContainsKey(vloggerName))
                     {
@@ -57,6 +59,7 @@
                 {
                     string vloggerFollower = inputCommands[0];
                     string influencerName = inputCommands[2];
+                    
                     //check if this vlogger can follow the other vlogger
                     if (vloggers.ContainsKey(vloggerFollower) && vloggers.ContainsKey(influencerName) &&
                         vloggerFollower != influencerName)
