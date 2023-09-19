@@ -16,6 +16,7 @@
                     //add the contest with his password to the dictionary
                     contestsWithPasswords.Add(contest, password);
                 }
+                
                 contests = Console.ReadLine().Split(':');
             }
 
@@ -26,11 +27,13 @@
             {
                 string contest = contestsWithUsernamesAndPoints[0];
                 string password = contestsWithUsernamesAndPoints[1];
+                
                 //check if the contest and the password are valid
                 if (contestsWithPasswords.ContainsKey(contest) && contestsWithPasswords[contest] == password)
                 {
                     string username = contestsWithUsernamesAndPoints[2];
                     int points = int.Parse(contestsWithUsernamesAndPoints[3]);
+                    
                     //check if the username is not present in the dictionary || check if the username is present, but the contest is not || check if the new points are more than the older ones
                     if (!candidatesPoints.ContainsKey(username))
                     {
@@ -48,6 +51,7 @@
                         candidatesPoints[username][contest] = points;
                     }
                 }
+                
                 contestsWithUsernamesAndPoints = Console.ReadLine().Split("=>");
             }
 
