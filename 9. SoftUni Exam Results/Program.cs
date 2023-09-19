@@ -10,6 +10,7 @@
             while (true)
             {
                 commands = Console.ReadLine().Split('-');
+                
                 //check if the command is "exam finished" which means that the program should stop working
                 if (commands[0] == "exam finished")
                 {
@@ -25,8 +26,7 @@
                     {
                         Console.WriteLine($"{language.Key} - {language.Value}");
                     }
-
-                    //stop the program
+                    
                     break;
                 }
 
@@ -36,6 +36,7 @@
                     string student = commands[0];
                     string language = commands[1];
                     int points = int.Parse(commands[2]);
+                    
                     //check if the student is not present in the dictionary
                     if (!studentsWithPoints.ContainsKey(student))
                     {
@@ -63,8 +64,8 @@
                 }
                 else if (commands[1] == "banned")
                 {
-                    string studentCheater = commands[0];
                     //remove the student who cheated on the exam
+                    string studentCheater = commands[0];
                     studentsWithPoints.Remove(studentCheater);
                 }
             }
