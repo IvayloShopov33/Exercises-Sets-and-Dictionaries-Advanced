@@ -12,6 +12,7 @@
                 string[] colorWithClothes = Console.ReadLine().Split(" -> ");
                 string color = colorWithClothes[0];
                 string[] clothesWithTheSameColor = colorWithClothes[1].Split(',');
+                
                 //check if the color is not present in the dictionary
                 if (!clothes.ContainsKey(color))
                 {
@@ -42,6 +43,7 @@
                 foreach (var wear in color.Value)
                 {
                     Console.Write($"* {wear.Key} - {wear.Value} ");
+                    
                     //check if the current garment is the searched one
                     if (color.Key == colorToSearch && wear.Key == garment)
                     {
